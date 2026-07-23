@@ -1,0 +1,141 @@
+.dialog {
+    max-width: 29rem;
+}
+
+.taskDialog {
+    max-width: 34rem;
+    max-height: calc(100dvh - 2rem);
+    overflow-y: auto;
+}
+
+.form {
+    display: grid;
+    gap: 1.1rem;
+}
+
+.field {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.twoColumns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+}
+
+.select {
+    width: 100%;
+}
+
+.readOnlyValue {
+    display: flex;
+    height: 2.5rem;
+    padding: 0 0.8rem;
+    align-items: center;
+    color: var(--muted-foreground);
+    border: 1px solid rgb(255 255 255 / 55%);
+    border-radius: 0.8rem;
+    box-shadow: var(--shadow-inset-soft);
+    font-size: 0.875rem;
+}
+
+.colorField {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.colorField legend {
+    margin-bottom: 0.65rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.colorOptions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+}
+
+.colorButton,
+.customColor {
+    position: relative;
+    display: grid;
+    width: 2.15rem;
+    height: 2.15rem;
+    padding: 0;
+    place-items: center;
+    color: rgb(48 55 62 / 75%);
+    border: 2px solid transparent;
+    border-radius: 50%;
+    background: var(--option-color);
+    box-shadow:
+        3px 3px 7px rgb(153 164 176 / 42%),
+        -3px -3px 7px rgb(255 255 255 / 78%);
+    cursor: pointer;
+}
+
+.colorButton:focus-visible,
+.customColor:focus-within {
+    outline: 3px solid color-mix(in srgb, var(--ring) 45%, transparent);
+    outline-offset: 2px;
+}
+
+.selectedColor {
+    border-color: var(--foreground);
+}
+
+.colorButton svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.customColor {
+    overflow: hidden;
+    color: var(--foreground);
+    border: 1px dashed color-mix(in srgb, var(--foreground) 45%, transparent);
+    background: conic-gradient(#f5b9c8, #f7d591, #b9e3ca, #b9d9f0, #d7c2e9, #f5b9c8);
+}
+
+.customColor input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.customColor span {
+    display: grid;
+    width: 1.25rem;
+    height: 1.25rem;
+    place-items: center;
+    border-radius: 50%;
+    background: rgb(255 255 255 / 82%);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.error {
+    margin: 0;
+    padding: 0.7rem 0.8rem;
+    color: var(--destructive);
+    border: 1px solid color-mix(in srgb, var(--destructive) 22%, white);
+    border-radius: 0.75rem;
+    background: color-mix(in srgb, var(--destructive) 7%, white);
+    font-size: 0.8rem;
+    white-space: pre-line;
+}
+
+.deleteIcon {
+    color: var(--destructive);
+    background: color-mix(in srgb, var(--destructive) 10%, var(--background));
+    box-shadow: var(--shadow-inset-soft);
+}
+
+@media (max-width: 560px) {
+    .twoColumns {
+        grid-template-columns: 1fr;
+    }
+}
