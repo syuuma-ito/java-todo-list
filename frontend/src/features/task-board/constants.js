@@ -9,12 +9,14 @@ const TASK_TYPE_LABEL = {
 };
 
 const PRIORITY = {
+    NONE: "NONE",
     LOW: "LOW",
     MEDIUM: "MEDIUM",
     HIGH: "HIGH",
 };
 
 const PRIORITY_LABEL = {
+    [PRIORITY.NONE]: "指定なし",
     [PRIORITY.LOW]: "低",
     [PRIORITY.MEDIUM]: "中",
     [PRIORITY.HIGH]: "高",

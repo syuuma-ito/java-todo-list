@@ -80,7 +80,7 @@ npm run dev
 | name | String | string | null不可 |
 | details | String | string | 空文字可、null不可 |
 | color | String | string | 空文字不可、null不可 |
-| priority | Priority | string | null不可、LOW、MEDIUM、HIGH のいずれか |
+| priority | Priority | string | null不可、NONE（指定なし）、LOW、MEDIUM、HIGH のいずれか |
 | completed | bool | boolean | null不可 |
 | order | int | number | null不可、0以上 |
 
@@ -200,7 +200,7 @@ orderはサーバー側で設定し、指定したタスクリスト内の末尾
 | name | String | string | null不可 |
 | details | String | string | 空文字可、null不可 |
 | color | String | string | 空文字不可、null不可 |
-| priority | Priority | string | null不可、LOW、MEDIUM、HIGH のいずれか |
+| priority | Priority | string | null不可、NONE（指定なし）、LOW、MEDIUM、HIGH のいずれか |
 | completed | bool | boolean | null不可 |
 
 DeadlineTaskの場合:
@@ -225,7 +225,7 @@ DeadlineTaskの場合:
 | name | String | string | null不可 |
 | details | String | string | 空文字可、null不可 |
 | color | String | string | 空文字不可、null不可 |
-| priority | Priority | string | null不可、LOW、MEDIUM、HIGH のいずれか |
+| priority | Priority | string | null不可、NONE（指定なし）、LOW、MEDIUM、HIGH のいずれか |
 | completed | bool | boolean | null不可 |
 
 DeadlineTaskの場合:
@@ -299,7 +299,7 @@ DeadlineTaskの場合:
     "errors": [
         {
             "type": "ValidationError",
-            "message": "priorityはLOW、MEDIUM、HIGHのいずれかを指定してください"
+            "message": "priorityはNONE、LOW、MEDIUM、HIGHのいずれかを指定してください"
         }
     ],
     "data": null

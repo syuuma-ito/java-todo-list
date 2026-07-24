@@ -25,14 +25,14 @@ class NormalTaskTest {
         String name = "通常タスク";
         String details = "タスクの詳細";
 
-        NormalTask task = new NormalTask(id, name, details, COLOR, Priority.HIGH, false, 0);
+        NormalTask task = new NormalTask(id, name, details, COLOR, Priority.NONE, false, 0);
 
         assertEquals(id, task.getId());
         assertEquals(TaskType.NORMAL, task.getType());
         assertEquals(name, task.getName());
         assertEquals(details, task.getDetails());
         assertEquals(COLOR, task.getColor());
-        assertEquals(Priority.HIGH, task.getPriority());
+        assertEquals(Priority.NONE, task.getPriority());
         assertFalse(task.isCompleted());
         assertEquals(0, task.getOrder());
     }

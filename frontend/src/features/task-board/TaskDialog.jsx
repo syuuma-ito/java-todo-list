@@ -17,7 +17,7 @@ function TaskDialog({ open, task, onOpenChange, onSubmit }) {
     const [name, setName] = useState(task?.name ?? "");
     const [details, setDetails] = useState(task?.details ?? "");
     const [color, setColor] = useState(task?.color ?? COLORS[0].value);
-    const [priority, setPriority] = useState(task?.priority ?? PRIORITY.MEDIUM);
+    const [priority, setPriority] = useState(task?.priority ?? PRIORITY.NONE);
     const [deadline, setDeadline] = useState(toDateTimeLocal(task?.deadline));
     const [error, setError] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -97,6 +97,7 @@ function TaskDialog({ open, task, onOpenChange, onSubmit }) {
                                     <SelectValue>{(value) => PRIORITY_LABEL[value]}</SelectValue>
                                 </SelectTrigger>
                                 <SelectContent>
+                                    <SelectItem value={PRIORITY.NONE}>指定なし</SelectItem>
                                     <SelectItem value={PRIORITY.LOW}>低</SelectItem>
                                     <SelectItem value={PRIORITY.MEDIUM}>中</SelectItem>
                                     <SelectItem value={PRIORITY.HIGH}>高</SelectItem>
