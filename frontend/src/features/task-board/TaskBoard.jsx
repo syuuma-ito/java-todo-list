@@ -4,7 +4,6 @@ import { AlertCircle, CheckCircle2, ListTodo, Plus, RefreshCcw, X } from "lucide
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
 import { DeleteDialog } from "@/features/task-board/DeleteDialog";
 import { TaskDialog } from "@/features/task-board/TaskDialog";
 import { TaskListColumn } from "@/features/task-board/TaskListColumn";
@@ -95,13 +94,7 @@ function TaskBoard() {
             )}
 
             <main className={styles.main}>
-                {board.isLoading ? (
-                    <div className={styles.board}>
-                        {[0, 1, 2].map((index) => (
-                            <Skeleton key={index} className={styles.columnSkeleton} />
-                        ))}
-                    </div>
-                ) : board.loadError ? (
+                {board.isLoading ? null : board.loadError ? (
                     <div className={styles.centerState} role="alert">
                         <AlertCircle aria-hidden="true" />
                         <h2>タスクリストを取得できませんでした</h2>
@@ -186,7 +179,6 @@ function TaskBoard() {
             {taskEditor && (
                 <TaskDialog
                     open
-                    taskList={taskEditor.taskList}
                     task={taskEditor.task}
                     onOpenChange={(open) => {
                         if (!open) {

@@ -31,7 +31,7 @@ mvn spring-boot:run
 
 ```bash
 cd frontend
-npm ci
+npm install
 ```
 
 サーバーの起動

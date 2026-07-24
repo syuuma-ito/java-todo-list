@@ -23,13 +23,13 @@ function TaskGroup({ title, emptyMessage, tasks, collapsible = false, disabled, 
                     onClick={() => setIsExpanded((current) => !current)}
                 >
                     <h3>{title}</h3>
-                    <span>{tasks.length}</span>
+                    <span>{tasks.length}件</span>
                     <ChevronDown className={isExpanded ? styles.expandedIcon : ""} aria-hidden="true" />
                 </button>
             ) : (
                 <div className={styles.sectionHeading}>
                     <h3>{title}</h3>
-                    <span>{tasks.length}</span>
+                    <span>{tasks.length}件</span>
                 </div>
             )}
 

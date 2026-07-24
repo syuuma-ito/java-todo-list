@@ -1,17 +1,6 @@
-import { Trash2 } from "lucide-react";
 import { useState } from "react";
 
-import {
-    AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogMedia,
-    AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 
 import styles from "./DialogForms.module.css";
 
@@ -50,11 +39,8 @@ function DeleteDialog({ open, target, onOpenChange, onConfirm }) {
         >
             <AlertDialogContent>
                 <AlertDialogHeader>
-                    <AlertDialogMedia className={styles.deleteIcon}>
-                        <Trash2 aria-hidden="true" />
-                    </AlertDialogMedia>
                     <AlertDialogTitle>{isTaskList ? "タスクリストを削除しますか" : "タスクを削除しますか"}</AlertDialogTitle>
-                    <AlertDialogDescription>リスト内の{target.taskList.tasks.length}件のタスクも削除されます</AlertDialogDescription>
+                    <AlertDialogDescription>この操作は元に戻すことができません</AlertDialogDescription>
                 </AlertDialogHeader>
 
                 {error && (

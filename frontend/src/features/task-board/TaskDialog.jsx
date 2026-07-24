@@ -12,7 +12,7 @@ import { toApiDateTime, toDateTimeLocal } from "@/features/task-board/dateTime";
 
 import styles from "./DialogForms.module.css";
 
-function TaskDialog({ open, taskList, task, onOpenChange, onSubmit }) {
+function TaskDialog({ open, task, onOpenChange, onSubmit }) {
     const [type, setType] = useState(task?.type ?? TASK_TYPE.NORMAL);
     const [name, setName] = useState(task?.name ?? "");
     const [details, setDetails] = useState(task?.details ?? "");
@@ -22,6 +22,7 @@ function TaskDialog({ open, taskList, task, onOpenChange, onSubmit }) {
     const [error, setError] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const isEditing = Boolean(task);
+    const isCustomColor = COLORS.every((option) => option.value !== color.toUpperCase());
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -139,8 +140,12 @@ function TaskDialog({ open, taskList, task, onOpenChange, onSubmit }) {
                                 </button>
                             ))}
 
-                            <label className={styles.customColor} title="カスタムカラー">
-                                <input type="color" value={color} onInput={(event) => setColor(event.target.value.toUpperCase())} />
+                            <label
+                                className={`${styles.customColor} ${isCustomColor ? styles.selectedCustomColor : ""}`}
+                                style={{ "--option-color": color }}
+                                title="カスタムカラー"
+                            >
+                                <input type="color" value={color} onChange={(event) => setColor(event.target.value.toUpperCase())} />
                                 <span>＋</span>
                             </label>
                         </div>

@@ -98,6 +98,11 @@
     background: conic-gradient(#f5b9c8, #f7d591, #b9e3ca, #b9d9f0, #d7c2e9, #f5b9c8);
 }
 
+.selectedCustomColor {
+    border: 2px solid var(--foreground);
+    background: var(--option-color);
+}
+
 .customColor input {
     position: absolute;
     width: 100%;
